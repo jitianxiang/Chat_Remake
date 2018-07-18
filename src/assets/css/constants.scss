@@ -1,0 +1,77 @@
+// 颜色定义规范
+$color-background : #222;
+$color-background-d : rgba(0, 0, 0, 0.3);
+$color-highlight-background : #333;
+$color-dialog-background : #666;
+$color-theme : #ffcd32;
+$color-theme-d : rgba(255, 205, 49, 0.5);
+$color-sub-theme : #d93f30;
+$color-text : #fff;
+$color-text-d : rgba(255, 255, 255, 0.3);
+$color-text-l : rgba(255, 255, 255, 0.5);
+$color-text-ll : rgba(255, 255, 255, 0.8);
+
+//字体定义规范
+$font-size-small-s : 0.1rem;
+$font-size-small : .12rem;
+$font-size-medium : .14rem;
+$font-size-medium-x : .16rem;
+$font-size-large : .18rem;
+$font-size-large-x : .22rem;
+
+// 背景图片
+@mixin bg-image($url){
+  background-image: url($url + "@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+    background-image: url($url + "@3x.png");
+  }
+};
+
+// 不换行
+@mixin no-wrap(){
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+};
+
+// 扩展点击区域
+@mixin extend-click() {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -.1rem;
+    left: -.1rem;
+    right: -.1rem;
+    bottom: -.1rem;
+  }
+};
+
+@mixin pr-user-select {
+  -moz-user-select:none; /*火狐*/
+  -webkit-user-select:none; /*webkit浏览器*/
+  -ms-user-select:none; /*IE10*/
+  -khtml-user-select:none; /*早期浏览器*/
+  user-select:none;
+};
+
+@mixin pr-transform($deg: 0) {
+  transform:rotate($deg);
+  -ms-transform:rotate($deg); 	/* IE 9 */
+  -moz-transform:rotate($deg); 	/* Firefox */
+  -webkit-transform:rotate($deg); /* Safari 和 Chrome */
+  -o-transform:rotate($deg);
+}
+
+@mixin pr-border-radius($radius: 0) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
